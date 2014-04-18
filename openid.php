@@ -688,6 +688,8 @@ class LightOpenID
         return $this->authUrl_v1($immediate);
     }
 
+    var $validate_error;
+
     /**
      * Performs OpenID verification with the OP.
      * @return Bool Whether the verification was successful.
@@ -700,10 +702,12 @@ class LightOpenID
         # mode 'setup_needed' (for 2.0). Also catching all modes other than
         # id_res, in order to avoid throwing errors.
         if(isset($this->data['openid_user_setup_url'])) {
+            $this->validate_error = "No user setup URL specified.";
             $this->setup_url = $this->data['openid_user_setup_url'];
             return false;
         }
         if($this->mode != 'id_res') {
+            $this->validate_error = "OpenID mode was not id_res.";
             return false;
         }
 
@@ -731,6 +735,7 @@ class LightOpenID
         if ($this->data['openid_return_to'] != $this->returnUrl) {
             # The return_to url must match the url of current request.
             # I'm assuing that noone will set the returnUrl to something that doesn't make sense.
+            $this->validate_error = "return_to parameter was mismatched: '" . htmlspecialchars($this->data['openid_return_to']) . "', '" . htmlspecialchars($this->returnUrl) . "'";
             return false;
         }
 
