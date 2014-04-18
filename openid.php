@@ -41,6 +41,10 @@
  *
  * To get the values, use $openid->getAttributes().
  *
+ * If LIGHTOPENID_TIMEOUT is defined, then this value (in ms) will be used to timeout
+ * the CURL OpenID requests; by default, this is limited to 10 seconds (instead of infinite).
+ * This can help in blocking potential Denial of Service attacks.
+ *
  *
  * The library requires PHP >= 5.1.2 with curl or http/https stream wrappers enabled.
  * @author Mewp
