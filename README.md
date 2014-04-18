@@ -11,3 +11,17 @@ This fork adds two important features for real-world deployment:
 
 * Adds `$this->validate_error` which will report any problems when validating an
   OpenID identity.
+
+To use in your Composer project, specify a repository to override the default:
+
+```json
+{
+  "require": {
+    "lightopenid/lightopenid": "dev-master"
+  },
+  "repositories": [{
+    "type": "vcs",
+    "url": "https://github.com/soundasleep/lightopenid"
+  }]
+}
+```
