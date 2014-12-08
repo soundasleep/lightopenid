@@ -1,5 +1,6 @@
 {
     "name": "soundasleep/lightopenid",
+    "description": "A PHP 5 library for easy openid authentication.",
     "type": "library",
     "keywords": ["openid"],
     "homepage": "http://code.google.com/p/lightopenid/",
