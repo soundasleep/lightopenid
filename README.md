@@ -17,11 +17,7 @@ To use in your Composer project, specify a repository to override the default:
 ```json
 {
   "require": {
-    "lightopenid/lightopenid": "dev-master"
-  },
-  "repositories": [{
-    "type": "vcs",
-    "url": "https://github.com/soundasleep/lightopenid"
-  }]
+    "soundasleep/lightopenid": "dev-master"
+  }
 }
 ```
